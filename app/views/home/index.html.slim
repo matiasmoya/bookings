@@ -17,3 +17,22 @@ table cellspacing='0'
               a.js-bookme href="#" Bookme
           - else
             td Bookme
+
+table cellspacing='0'
+  thead
+    tr
+      th Bookings
+      th User
+      th Field
+      th Venue
+      th Schedule starts at
+      th Schedule endss at
+  tbody.js-bookings-table
+    - @bookings.each do |booking|
+      tr
+        td = booking.id
+        td = booking.user.email
+        td = booking.field.name
+        td = booking.field.venue.name
+        td = booking.schedule.start_at
+        td = booking.schedule.ends_at

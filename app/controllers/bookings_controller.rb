@@ -23,7 +23,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save!
-      render :js => "alert('Booking created with id #{@booking.id}');", :status => 200
+      respond_to do |format|
+        format.js
+      end
     else
       redirect_to :root, notice: "There was an error with your booking"
     end

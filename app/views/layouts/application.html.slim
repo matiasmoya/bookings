@@ -5,15 +5,16 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    - if notice
-      p.notice = notice
-    - if alert
-      p.alert = alert
     - if current_user
       .login
         = current_user.email
     - else
       .login
         = link_to "Log in", new_user_session_path
+    - if notice
+      p.notice = notice
+    - if alert
+      p.alert = alert
+
     .content
       = yield

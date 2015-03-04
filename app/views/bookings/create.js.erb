@@ -1,0 +1,2 @@
+$('.js-bookings-table').append("<tr><td><%=@booking.id %></td><td><%= @booking.id %></td><td><%= @booking.user.email %></td><td><%= @booking.field.name %></td><td><%= @booking.field.venue.name %></td><td><%= @booking.schedule.start_at %></td><td><%= @booking.schedule.ends_at %></td></tr>");
+$("html, body").animate({ scrollTop: $(document).height() }, 1000);
