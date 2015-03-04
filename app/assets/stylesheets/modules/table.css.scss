@@ -95,3 +95,13 @@ table tr:hover td {
   background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
   background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
 }
+.venues-table{
+  display: block;
+  float:left;
+  width: 300px;
+}
+.bookings-table{
+  display: block;
+  float:left;
+  width: 700px;
+}

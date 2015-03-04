@@ -2,37 +2,40 @@ h1 Book kings
 p Welcome to this demo
 
 h2 Make a booking with any of these fields
-table cellspacing='0'
-  thead
-    tr
-      th Venues
-      th Availability
-  tbody
-    - @schedules.each do |sch|
-      - sch.fields.each do |field|
-        tr
-          td = field.venue.name
-          - if current_user
-            td data-user_id='#{current_user.id}' data-field_id='#{field.id}' data-schedule_id='#{sch.id}'
-              a.js-bookme href="#" Bookme
-          - else
-            td Bookme
-
-table cellspacing='0'
-  thead
-    tr
-      th Bookings
-      th User
-      th Field
-      th Venue
-      th Schedule starts at
-      th Schedule endss at
-  tbody.js-bookings-table
-    - @bookings.each do |booking|
+.venues-table
+  table cellspacing='0'
+    thead
       tr
-        td = booking.id
-        td = booking.user.email
-        td = booking.field.name
-        td = booking.field.venue.name
-        td = booking.schedule.start_at
-        td = booking.schedule.ends_at
+        th Venues
+        th Availability
+    tbody
+      - @schedules.each do |sch|
+        - sch.fields.each do |field|
+          tr
+            td = field.venue.name
+            - if current_user
+              td data-user_id='#{current_user.id}' data-field_id='#{field.id}' data-schedule_id='#{sch.id}'
+                a.js-bookme href="#" Bookme
+            - else
+              td Bookme
+.bookings-table
+  table cellspacing='0'
+    thead
+      tr
+        th Bookings
+        th User
+        th Field
+        th Venue
+        th Schedule starts at
+        th Schedule endss at
+        th Action
+    tbody.js-bookings-table
+      - @bookings.each do |booking|
+        tr data-booking-destroy='#{booking.id}'
+          td = booking.id
+          td = booking.user.email
+          td = booking.field.name
+          td = booking.field.venue.name
+          td = booking.schedule.start_at
+          td = booking.schedule.ends_at
+          td = link_to 'Delete', booking_path(booking.id), :method => :delete, :class => 'delete', :remote => true, :confirm => 'Are you sure ?'

@@ -37,8 +37,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.destroy
-    respond_with(@booking)
+    if @booking.destroy!
+      render :js => "$('tr[data-booking-destroy="+@booking.id.to_s+"]').fadeOut()"
+    end
   end
 
   private

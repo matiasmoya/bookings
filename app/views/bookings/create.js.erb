@@ -1,2 +1,10 @@
-$('.js-bookings-table').append("<tr><td><%=@booking.id %></td><td><%= @booking.id %></td><td><%= @booking.user.email %></td><td><%= @booking.field.name %></td><td><%= @booking.field.venue.name %></td><td><%= @booking.schedule.start_at %></td><td><%= @booking.schedule.ends_at %></td></tr>");
-$("html, body").animate({ scrollTop: $(document).height() }, 1000);
+$('.js-bookings-table').append('<tr data-booking-destroy=<%= @booking.id %>><td><%= @booking.id %></td>'+
+  '<td><%= @booking.user.email %></td>'+
+  '<td><%= @booking.field.name %></td>'+
+  '<td><%= @booking.field.venue.name %></td>'+
+  '<td><%= @booking.schedule.start_at %></td>'+
+  '<td><%= @booking.schedule.ends_at %></td>'+
+  '<td><%= link_to "Delete", booking_path(@booking.id), :method => :delete, :class => "delete", :remote => true, :confirm => "Are you sure ?"%></td>'+
+  '</tr>');
+
+$('html, body').animate({ scrollTop: $(document).height() }, 1000);
