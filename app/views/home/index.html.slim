@@ -1,0 +1,19 @@
+h1 Book kings
+p Welcome to this demo
+
+h2 Make a booking with any of these fields
+table cellspacing='0'
+  thead
+    tr
+      th Venues
+      th Availability
+  tbody
+    - @schedules.each do |sch|
+      - sch.fields.each do |field|
+        tr
+          td = field.venue.name
+          - if current_user
+            td data-user_id='#{current_user.id}' data-field_id='#{field.id}' data-schedule_id='#{sch.id}'
+              a.js-bookme href="#" Bookme
+          - else
+            td Bookme

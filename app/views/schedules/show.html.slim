@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Start at:
+  = @schedule.start_at
+p
+  strong Ends at:
+  = @schedule.ends_at
+p
+  strong Venue:
+  = @schedule.venue
+
+= link_to 'Edit', edit_schedule_path(@schedule)
+'|
+= link_to 'Back', schedules_path

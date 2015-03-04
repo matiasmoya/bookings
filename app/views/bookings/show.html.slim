@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @booking.user.id
+p
+  strong Field:
+  = @booking.field.name
+p
+  strong Schedule:
+  = @booking.schedule.start_at
+
+= link_to 'Edit', edit_booking_path(@booking)
+'|
+= link_to 'Back', bookings_path
