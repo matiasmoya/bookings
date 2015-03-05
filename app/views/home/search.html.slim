@@ -1,0 +1,8 @@
+h2 Search Results
+ul
+  - @resultados.each do |field|
+    li
+      = field.name
+
+h2 Your search params
+= debug params

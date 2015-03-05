@@ -9,11 +9,10 @@ $(document).ready(function(){
       url: "/bookings",
       data: {
         booking: {
-          field_id: user_id,
+          field_id: field_id,
           schedule_id: schedule_id,
-          user_id : user_id
+          user_id : user_id}
         }
-      }
   }).done(function() {
       console.log("done");
     });

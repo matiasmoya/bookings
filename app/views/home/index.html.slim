@@ -2,6 +2,20 @@ h1 Book kings
 p Welcome to this demo
 
 h2 Make a booking with any of these fields
+
+= form_tag('/search', method: 'get') do
+  .label
+    = label_tag(:venue_name, "Venue name:")
+    = text_field_tag(:venue_name)
+  .label
+    = label_tag(:start_at, "from:")
+    = text_field_tag(:start_at)
+  .label
+    = label_tag(:ends_at, "to:")
+    = text_field_tag(:ends_at)
+  .label
+    = submit_tag("Search")
+
 .venues-table
   table cellspacing='0'
     thead
